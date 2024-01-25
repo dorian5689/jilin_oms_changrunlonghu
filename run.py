@@ -144,9 +144,11 @@ def tianxie(image):
         pyautogui.moveTo(i[0], i[1])
         # 清除输入框内容
         pyautogui.click(i)
-        pyautogui.press('backspace')
+        for _ in range(5):
+            pyautogui.press('backspace')
         # todo 这里不能输入数值
         pyautogui.press('1')
+        pyautogui.press('12')
         print(F'点击了第{num}个')
         num+=1
 
@@ -191,7 +193,7 @@ if __name__ == '__main__':
     time.sleep(6)
 
     find_soft_button_one(F'13.png')
-    time.sleep(6)
+    # time.sleep(6)
 
     import pyautogui
 
@@ -205,7 +207,7 @@ if __name__ == '__main__':
 
         try:
             pyautogui.scroll(-10)
-            time.sleep(3)
+            time.sleep(0.5)
             location = pyautogui.locateCenterOnScreen(F'14.png')
             print(F'{location}')
             if location:
@@ -219,6 +221,7 @@ if __name__ == '__main__':
         except Exception as e:
             print(F'没有找到风电场')
             pass
+    time.sleep(2)
     find_soft_button_one(F'17.png')
     time.sleep(3)
     find_soft_button_one(F'18.png')
