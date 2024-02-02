@@ -15,6 +15,8 @@ import time
 from FindSoft.Find_Exe import FindExeTools
 
 
+
+
 def return_desk():
     # 模拟按下Ctrl键
     pyautogui.keyDown('win')
@@ -42,6 +44,8 @@ def find_soft_button(image):
 
     # 移动鼠标到按钮位置并点击
     pyautogui.moveTo(button_x, button_y)
+    time.sleep(2)
+
     pyautogui.doubleClick()
     pyautogui.doubleClick()
 
@@ -73,7 +77,6 @@ def find_soft_button_one_tc(image):
 
 def max_soft(soft_name):
     res = gw.getWindowsWithTitle(F'{soft_name}')[0]
-
     res.maximize()
 
 
@@ -136,7 +139,7 @@ def gundong(template_image):
 
 def tianxie(image):
     # 获取按钮在屏幕上的位置
-    BTM = list(pyautogui.locateAllOnScreen(image, confidence=0.8))
+    BTM = list(pyautogui.locateAllOnScreen(image, confidence=0.3))
     print(BTM)
     num = 1
     print(list(BTM))
@@ -144,11 +147,13 @@ def tianxie(image):
         pyautogui.moveTo(i[0], i[1])
         # 清除输入框内容
         pyautogui.click(i)
-        for _ in range(5):
+        for _ in range(10):
             pyautogui.press('backspace')
         # todo 这里不能输入数值
         pyautogui.press('1')
-        pyautogui.press('12')
+        pyautogui.press('.')
+        pyautogui.press('1')
+        # pyautogui.press('12')
         print(F'点击了第{num}个')
         num+=1
 
@@ -157,79 +162,79 @@ def tianxie(image):
 
 
 if __name__ == '__main__':
-    return_desk()
-    FT = FindExeTools()
-    soft_name = F'SunloginRemote.exe'
-    FT.find_soft(soft_name)
-    return_desk()
-    image_name = F'2.png'
-    find_desk_soft(image=image_name)
-    soft_name2 = f'贝锐向日葵企业控制端'
-    # max_soft(soft_name2)
-    time.sleep(3)
+#     return_desk()
+#     FT = FindExeTools()
+#     soft_name = F'SunloginRemote.exe'
+#     FT.find_soft(soft_name)
+#     return_desk()
+#     image_name = F'2.png'
+#     find_desk_soft(image=image_name)
+#     soft_name2 = f'贝锐向日葵企业控制端'
+#     # max_soft(soft_name2)
+#     time.sleep(5)
     find_soft_button(F'3.png')
-    find_soft_button_one(F'4.png')
-    find_soft_button_one(F'5.png')
-    find_soft_button_one(F'6.png')
-    find_soft_button_one(F'7.png')
-
-    soft_name3 = F'长润龙湖风电场7460'
-    max_soft(soft_name3)
-    time.sleep(6)
-    try:
-        find_soft_button_one_tc(F'退出.png')
-    except Exception as e:
-        print(F'没有推迟按钮----{e}')
-        pass
-    try:
-        find_soft_button(F'10.png')
-    except Exception as e:
-        print(F'浏览器已打开--{e}')
-        pass
-    time.sleep(6)
-    find_soft_button(F'11.png')
-    time.sleep(6)
-    wind_(F'12.png')
-    time.sleep(6)
-
-    find_soft_button_one(F'13.png')
-    # time.sleep(6)
-
-    import pyautogui
-
-    # # 获取当前鼠标位置
-    current_mouse_x, current_mouse_y = pyautogui.position()
-    print(current_mouse_x, current_mouse_y)
-    pyautogui.moveTo(current_mouse_x, current_mouse_y - 100)
-    print(current_mouse_x, current_mouse_y)
-    time.sleep(3)
-    for i in range(100):
-
-        try:
-            pyautogui.scroll(-10)
-            time.sleep(0.5)
-            location = pyautogui.locateCenterOnScreen(F'14.png')
-            print(F'{location}')
-            if location:
-                # 获取中心坐标并点击
-                x, y = location
-                pyautogui.moveTo(x, y)
-
-                pyautogui.doubleClick()
-                print(f"成功找到并点击了图片，坐标为({x}, {y})")
-                break
-        except Exception as e:
-            print(F'没有找到风电场')
-            pass
-    time.sleep(2)
-    find_soft_button_one(F'17.png')
-    time.sleep(3)
-    find_soft_button_one(F'18.png')
-    time.sleep(3)
-    find_soft_button_one(F'19.png')
-    time.sleep(3)
-    wind_(F'20.png')
-    time.sleep(3)
-    find_soft_button_one(F'21.png')
-    time.sleep(3)
+#     find_soft_button_one(F'4.png')
+#     find_soft_button_one(F'5.png')
+#     find_soft_button_one(F'6.png')
+#     find_soft_button_one(F'7.png')
+#
+#     soft_name3 = F'长润龙湖风电场7460'
+#     max_soft(soft_name3)
+#     time.sleep(6)
+#     try:
+#         find_soft_button_one_tc(F'退出.png')
+#     except Exception as e:
+#         print(F'没有推迟按钮----{e}')
+#         pass
+#     try:
+#         find_soft_button(F'10.png')
+#     except Exception as e:
+#         print(F'浏览器已打开--{e}')
+#         pass
+#     time.sleep(6)
+#     find_soft_button(F'11.png')
+#     # time.sleep(6)
+#     wind_(F'12.png')
+#     time.sleep(6)
+#
+#     find_soft_button_one(F'13.png')
+#     time.sleep(6)
+#
+#     import pyautogui
+#
+#     # # 获取当前鼠标位置
+#     current_mouse_x, current_mouse_y = pyautogui.position()
+#     print(current_mouse_x, current_mouse_y)
+#     pyautogui.moveTo(current_mouse_x, current_mouse_y - 100)
+#     print(current_mouse_x, current_mouse_y)
+#     time.sleep(3)
+#     for i in range(100):
+#
+#         try:
+#             pyautogui.scroll(-10)
+#             time.sleep(1)
+#             location = pyautogui.locateCenterOnScreen(F'14.png')
+#             print(F'{location}')
+#             if location:
+#                 # 获取中心坐标并点击
+#                 x, y = location
+#                 pyautogui.moveTo(x, y)
+#
+#                 pyautogui.doubleClick()
+#                 print(f"成功找到并点击了图片，坐标为({x}, {y})")
+#                 break
+#         except Exception as e:
+#             print(F'没有找到风电场')
+#             pass
+#     time.sleep(2)
+#     find_soft_button_one(F'17.png')
+#     time.sleep(3)
+#     find_soft_button_one(F'18.png')
+#     time.sleep(3)
+#     find_soft_button_one(F'19.png')
+# #     time.sleep(3)
+#     wind_(F'20.png')
+#     time.sleep(3)
+#     find_soft_button_one(F'21.png')
+#     time.sleep(3)
     tianxie(F'22.png')

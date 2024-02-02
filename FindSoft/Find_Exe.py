@@ -50,7 +50,21 @@ class FindExeTools(object):
         pag.FAILSAFE = False
         self.log.info(F'查找{process_name},并运行程序')
 
+    def find_soft_kill(self, process_name='iscpclient.exe'):
+        '''
+        查找软件
+        :param process_name:  进程名称
+        :return:
 
+        '''
+        PT = ProcessCure()
+        time.sleep(5)
+        PT.admin_kill_process(process_name)
+
+        self.log.info(F'查找当前运行的{process_name},并结束进程')
+        time.sleep(3)
+        pag.FAILSAFE = False
+        self.log.info(F'查找{process_name},并运行程序')
     def click_button(self, image_path):
         '''
         点击图片

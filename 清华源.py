@@ -17,6 +17,8 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple    PyYAML
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple    opencv-python
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple    keyboard
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple    psutil
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple    pynput
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple    pymysql
 
 pip uninstall -y  pandas
 
