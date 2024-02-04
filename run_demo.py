@@ -108,15 +108,13 @@ class RunSunLogin(object):
         sun_desk_x, sun_desk_y = FIC.find_icon_coordinates(self.sun_desk)
         pyautogui.moveTo(sun_desk_x, sun_desk_y)
         pyautogui.doubleClick()
-        time.sleep(2)
-        WGC = WinGenericClass()
-        WGC.moveto_doubleclick(sun_desk_x, sun_desk_x)
-        time.sleep(2)
+        time.sleep(5)
+
         # devices_x, devices_y = FIC.find_icon_coordinates(self.devices)
         # pyautogui.moveTo(devices_x, devices_y)
         # pyautogui.doubleClick()
 
-        # time.sleep(2)
+        time.sleep(2)
         devices_x, devices_y = FIC.find_icon_coordinates(self.search_wfname)
         pyautogui.moveTo(devices_x, devices_y)
         pyautogui.doubleClick()
@@ -157,9 +155,7 @@ class RemoteConnection(object):
         time.sleep(6)
 
     def open_browser(self):
-        time.sleep(1)
-        # WGC.return_desk()
-
+        time.sleep(5)
         FIC = FindImageCoordinates()
         desk_control_x, desk_control_y = FIC.find_icon_coordinates(self.goole_browser)
         pyautogui.moveTo(desk_control_x, desk_control_y)
@@ -282,10 +278,11 @@ class WebpageDataReport(object):
         FIC = FindImageCoordinates()
         desk_control_x, desk_control_y = FIC.find_icon_coordinates(self.fdycgl)
         time.sleep(2)  # 82 20
-        # 165 629
+        # 100 350
         #  133 636
         print(desk_control_x, desk_control_y, 2222222222222222)
-        pyautogui.moveTo(desk_control_x - 33, desk_control_y + 7)
+        pyautogui.moveTo(desk_control_x-30 , desk_control_y)
+        # pyautogui.moveTo(103, 353)
         pyautogui.doubleClick()
         time.sleep(2)
 
@@ -322,22 +319,35 @@ class WebpageDataReport(object):
         crlh_data = WinGenericClass().select_crlh()
         FIC = FindImageCoordinates()
         time.sleep(3)
-        desk_control_x, desk_control_y = FIC.find_icon_coordinates(self.fill_rfdl)
-        # desk_control_x = desk_control_x + 200
-        # desk_control_y = desk_control_y + 10
 
-        pyautogui.moveTo(desk_control_x + 45, desk_control_y + 25)
-        pyautogui.click()
+        for i in self.fill_list:
+            if self.fill_list.index(i) == 0:
+                desk_control_x, desk_control_y = pyautogui.locateCenterOnScreen(i, confidence=0.8)
 
-        time.sleep(1)
-        for _ in range(4):
-            pyautogui.press('backspace')
-        pyautogui.typewrite(F'{9999}', interval=0.8)
+                desk_control_x, desk_control_y =    desk_control_x + 10, desk_control_y + 20
+                pyautogui.moveTo(desk_control_x, desk_control_y)
+                print(desk_control_x, desk_control_y,10000,i)
 
-        time.sleep(2)
+            else:
+                print(desk_control_x, desk_control_y,1111111,i)
+                # 477 321
+                # 585 321
+                desk_control_x, desk_control_y =  desk_control_x+102, desk_control_y
+                print(desk_control_x, desk_control_y,1111111,i)
+
+                pyautogui.moveTo(desk_control_x, desk_control_y)
+
+            pyautogui.click()
+            WinGenericClass().choose_all()
+
+            time.sleep(1)
+            for _ in range(4):
+                pyautogui.press('backspace')
+            pyautogui.typewrite(F'{9999}', interval=0.8)
+
+            time.sleep(2)
 
     def choose_fill_llfdl(self):
-        pyautogui.press('f11')
         crlh_data = WinGenericClass().select_crlh()
 
         time.sleep(3)
@@ -386,6 +396,7 @@ class WebpageDataReport(object):
                 time.sleep(0.2)
 
             else:
+                print(i)
                 desk_control_x, desk_control_y = pyautogui.locateCenterOnScreen(i, confidence=0.8)
                 # 136/26
                 # 636/587
@@ -457,6 +468,7 @@ class WebpageDataReport(object):
 
     def choose_save_data(self):
         FIC = FindImageCoordinates()
+        print(999999999)
         time.sleep(3)
         desk_control_x, desk_control_y = FIC.find_icon_coordinates(self.save_data)
         pyautogui.moveTo(desk_control_x, desk_control_y)
@@ -476,7 +488,7 @@ class WinGenericClass(object):
         # 模拟按下D键
         pyautogui.press('d')
         pyautogui.keyUp('win')
-        time.sleep(2)
+        time.sleep(5)
 
     def choose_all(self):
         # 模拟按下Ctrl键
@@ -516,25 +528,28 @@ if __name__ == '__main__':
     WGC = WinGenericClass()
     RCS = RemoteConnection()
     WDR = WebpageDataReport()
-
-
-    WGC.return_desk()
-    FT = FindExeTools()
-    soft_name = F'SunloginRemote.exe'
-    FT.find_soft_kill(soft_name)
     RSL = RunSunLogin()
-    RSL.sun_login()
-    RCS.max_screen()
-    WGC.return_desk()
-    RCS.open_browser()
-    RCS.open_dispatch()
-    RCS.choose_wind_farm()
-    RCS.choose_drop_list()
-    RCS.choose_login_name()
-    RCS.choose_login_password()
-    RCS.choose_login_button()
 
+
+    # WGC.return_desk()
+    # FT = FindExeTools()
+    # soft_name = F'SunloginRemote.exe'
+    # FT.find_soft_kill(soft_name)
+    # RSL.sun_login()
+    # RCS.max_screen()
+    # WGC.return_desk()
+    # RCS.open_browser()
+    # pyautogui.press('f11')
+    #
+    # RCS.open_dispatch()
+    # RCS.choose_wind_farm()
+    # RCS.choose_drop_list()
+    # RCS.choose_login_name()
+    # RCS.choose_login_password()
+    # RCS.choose_login_button()
+    # #
     # WDR.choose_fdycgl()
-    # WDR.choose_fdyryxxx()0
-    WDR.choose_fill_llfdl()
-    WDR.choose_save_data()
+    # WDR.choose_fdyryxxx()
+    # WDR.choose_fill_llfdl()
+    WDR.choose_fill1()
+    # WDR.choose_save_data()
