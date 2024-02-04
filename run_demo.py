@@ -332,7 +332,7 @@ class WebpageDataReport(object):
         time.sleep(1)
         for _ in range(4):
             pyautogui.press('backspace')
-        pyautogui.typewrite(F'{9999}', interval=0.5)
+        pyautogui.typewrite(F'{9999}', interval=0.8)
 
         time.sleep(2)
 
@@ -363,7 +363,7 @@ class WebpageDataReport(object):
                 for _ in range(4):
                     pyautogui.press('backspace')
                 time.sleep(0.1)
-                pyautogui.typewrite(F"{crlh_data[8]}", interval=0.5)
+                pyautogui.typewrite(F"{crlh_data[8]}", interval=0.8)
                 time.sleep(0.2)
             if self.fill_list.index(i) == 13:
                 time.sleep(0.5)
@@ -374,7 +374,6 @@ class WebpageDataReport(object):
                 # 111 2006 540
                 # 111 2010 564
                 pyautogui.moveTo(desk_control_x + 120, desk_control_y + 20)
-                print(111, desk_control_x, desk_control_y)
                 time.sleep(0.1)
 
                 pyautogui.click()
@@ -383,7 +382,7 @@ class WebpageDataReport(object):
                 for _ in range(4):
                     pyautogui.press('backspace')
                 time.sleep(0.1)
-                pyautogui.typewrite(F"{crlh_data[11]}", interval=0.5)
+                pyautogui.typewrite(F"{crlh_data[11]}", interval=0.8)
                 time.sleep(0.2)
 
             else:
@@ -400,34 +399,47 @@ class WebpageDataReport(object):
                 for _ in range(4):
                     pyautogui.press('backspace')
                 if self.fill_list.index(i) == 0:  # 日发电量
-                    pyautogui.typewrite(F"{crlh_data[2]}", interval=0.5)
+                    pyautogui.typewrite(F"{crlh_data[2]}", interval=0.8)
                 if self.fill_list.index(i) == 1:  # 可用功率
-                    pyautogui.typewrite(F"{crlh_data[14]}", interval=0.5)
+                    pyautogui.typewrite(F"{crlh_data[14]}", interval=0.8)
                 if self.fill_list.index(i) == 2:  # 理论发电量
-                    pyautogui.typewrite(F"{crlh_data[15]}", interval=0.5)
+                    pyautogui.typewrite(F"{crlh_data[15]}", interval=0.8)
                 if self.fill_list.index(i) == 3:  # 日站外受阻电量
-                    pyautogui.typewrite(F"{crlh_data[12]}", interval=0.5)
+                    pyautogui.typewrite(F"{crlh_data[12]}", interval=0.8)
                 if self.fill_list.index(i) == 4:  # 日站内受阻电量
-                    pyautogui.typewrite(F"{crlh_data[12]}", interval=0.5)
+                    pyautogui.typewrite(F"{crlh_data[12]}", interval=0.8)
                 if self.fill_list.index(i) == 5:  # 样板机日发电量110.41
-                    pyautogui.typewrite(F"{crlh_data[5]}", interval=0.5)
+                    pyautogui.typewrite(F"{crlh_data[5]}", interval=0.8)
                 if self.fill_list.index(i) == 6:  # 日最大电量
-                    pyautogui.typewrite(F"{crlh_data[3]}", interval=0.5)
+                    pyautogui.typewrite(F"{round(float(crlh_data[3]))}", interval=0.8)
                 if self.fill_list.index(i) == 7:  # 日最大受阻电量
-                    pyautogui.typewrite(F"{crlh_data[13]}", interval=0.5)
+                    pyautogui.typewrite(F"{crlh_data[13]}", interval=0.8)
                 if self.fill_list.index(i) == 8:  # 平均风速
-                    pyautogui.typewrite(F"{crlh_data[6]}", interval=0.5)
+                    pyautogui.typewrite(F"{crlh_data[6]}", interval=0.8)
                 if self.fill_list.index(i) == 9:  # 最大风速
-                    pyautogui.typewrite(F"{crlh_data[7]}", interval=0.5)
+                    pyautogui.typewrite(F"{crlh_data[7]}", interval=0.8)
 
                 if self.fill_list.index(i) == 11:  # 最高气温
-                    pyautogui.typewrite(F"{crlh_data[10]}", interval=0.5)
+                    pyautogui.typewrite(F"{crlh_data[10]}", interval=0.8)
                 if self.fill_list.index(i) == 12:  # 平均气温
-                    pyautogui.typewrite(F"{crlh_data[9]}", interval=0.5)
-                if self.fill_list.index(i) == 9:  # 最大风速
-                    pyautogui.typewrite(F"{crlh_data[7]}", interval=0.5)
-                time.sleep(0.2)
+                    pyautogui.typewrite(F"{crlh_data[9]}", interval=0.8)
 
+                time.sleep(0.2)
+        for i in self.fill_list:
+            if self.fill_list.index(i) == 9:
+                desk_control_x, desk_control_y = pyautogui.locateCenterOnScreen(i, confidence=0.8)
+                # 136/26
+                # 636/587
+                # 627/561
+                print(33333, desk_control_x, desk_control_y)
+
+                pyautogui.moveTo(desk_control_x + 10, desk_control_y + 20)
+                pyautogui.click()
+                WinGenericClass().choose_all()
+                time.sleep(0.2)
+                for _ in range(4):
+                    pyautogui.press('backspace')
+                pyautogui.typewrite(F"{crlh_data[7]}", interval=0.8)
     def choose_fill_kyfdl(self):
         FIC = FindImageCoordinates()
         time.sleep(3)
@@ -440,7 +452,7 @@ class WebpageDataReport(object):
         for _ in range(4):
             pyautogui.press('backspace')
 
-        pyautogui.typewrite(F'{9999}', interval=0.5)
+        pyautogui.typewrite(F'{9999}', interval=0.8)
         time.sleep(2)
 
     def choose_save_data(self):
@@ -502,25 +514,27 @@ class WinGenericClass(object):
 
 if __name__ == '__main__':
     WGC = WinGenericClass()
-    # WGC.return_desk()
-    # FT = FindExeTools()
-    # soft_name = F'SunloginRemote.exe'
-    # FT.find_soft_kill(soft_name)
-    # RSL = RunSunLogin()
-    # RSL.sun_login()
-    # RCS = RemoteConnection()
-    # RCS.max_screen()
-    # WGC.return_desk()
-    # RCS.open_browser()
-    # RCS.open_dispatch()
-    # RCS.choose_wind_farm()
-    # RCS.choose_drop_list()
-    # RCS.choose_login_name()
-    # RCS.choose_login_password()
-    # RCS.choose_login_button()
+    RCS = RemoteConnection()
     WDR = WebpageDataReport()
 
+
+    WGC.return_desk()
+    FT = FindExeTools()
+    soft_name = F'SunloginRemote.exe'
+    FT.find_soft_kill(soft_name)
+    RSL = RunSunLogin()
+    RSL.sun_login()
+    RCS.max_screen()
+    WGC.return_desk()
+    RCS.open_browser()
+    RCS.open_dispatch()
+    RCS.choose_wind_farm()
+    RCS.choose_drop_list()
+    RCS.choose_login_name()
+    RCS.choose_login_password()
+    RCS.choose_login_button()
+
     # WDR.choose_fdycgl()
-    # WDR.choose_fdyryxxx()
+    # WDR.choose_fdyryxxx()0
     WDR.choose_fill_llfdl()
     WDR.choose_save_data()
