@@ -353,14 +353,20 @@ class WebpageDataReport(object):
         self.login_button = F'Images{os.sep}ScreenshotImage{os.sep}login_button.png'
         self.fill = F'Images{os.sep}ScreenshotImage{os.sep}fill.png'
         self.save_data = F'Images{os.sep}ScreenshotImage{os.sep}save_data.png'
+        self.save_data_crlh = F'Images{os.sep}ScreenshotImage{os.sep}save_dat_crlh.png'
+        self.save_data_ahqs = F'Images{os.sep}ScreenshotImage{os.sep}save_data_ahqs.png'
         self.cdmc = F'Images{os.sep}ScreenshotImage{os.sep}cdmc.png'
         self.fdycgl = F'Images{os.sep}ScreenshotImage{os.sep}fdycgl.png'
         self.fdycgl1 = F'Images{os.sep}ScreenshotImage{os.sep}fdycgl1.png'
         self.fdcryxxx = F'Images{os.sep}ScreenshotImage{os.sep}fdcryxxx.png'
         self.confirm_save = F'Images{os.sep}ScreenshotImage{os.sep}confirm_save.png'
+        self.confirm_save_ahqs = F'Images{os.sep}ScreenshotImage{os.sep}confirm_save_ahqs.png'
         self.confirm_report = F'Images{os.sep}ScreenshotImage{os.sep}confirm_report.png'
+        self.confirm_report_ahqs= F'Images{os.sep}ScreenshotImage{os.sep}confirm_report_ahqs.png'
+        self.confirm_report_crlh= F'Images{os.sep}ScreenshotImage{os.sep}confirm_report_crlh.png'
         self.tianbao_crlh = F'Images{os.sep}ScreenshotImage{os.sep}tianbao_crlh.png'
-        self.tianbao_kuang = F'Images{os.sep}ScreenshotImage{os.sep}tianbao_kuang.png'
+        self.tianbao_kuang_qhqs = F'Images{os.sep}ScreenshotImage{os.sep}tianbao_kuang_ahqs.png'
+        self.tianbao_kuang_crlh = F'Images{os.sep}ScreenshotImage{os.sep}tianbao_kuang_crlh.png'
 
         self.fill_list = self.fill_list_return()
 
@@ -563,6 +569,208 @@ class WebpageDataReport(object):
         #     pyautogui.typewrite(F"{14}", interval=1)
         #
         #     time.sleep(2)
+    def choose_fill1_ahqs(self):
+        time.sleep(3)
+        crlh_data = WinGenericClass().select_ahqs()
+
+        desk_control_x, desk_control_y = pyautogui.locateCenterOnScreen(self.tianbao_kuang_qhqs, confidence=0.8)
+        pyautogui.moveTo(desk_control_x, desk_control_y)
+        pyautogui.doubleClick(desk_control_x,desk_control_y)
+        print(desk_control_x, desk_control_y, 10000, self.tianbao_crlh)
+        wf_name = crlh_data[0]
+        now_day=  crlh_data[1]
+        swdl =    float(crlh_data[2])
+        data1 =  swdl
+        zwxdl = float(crlh_data[12])
+        data2 = swdl+ zwxdl
+        znssdl = crlh_data[4]
+        data3 = swdl+ zwxdl+znssdl
+        data4 = zwxdl
+        data5 = znssdl
+        data6 = crlh_data[5]
+        data7 = crlh_data[3]
+        data8 = crlh_data[13]
+        data9 = crlh_data[6]
+        data10 = crlh_data[7]
+        data11 = crlh_data[8]
+        data12 = crlh_data[10]
+        data13 = crlh_data[9]
+        data14 = crlh_data[11]
+        crlh_data_list = []
+        crlh_data_list.append(data1)
+        crlh_data_list.append(data2)
+        crlh_data_list.append(data3)
+        crlh_data_list.append(data4)
+        crlh_data_list.append(data5)
+        crlh_data_list.append(data6)
+        crlh_data_list.append(data7)
+        crlh_data_list.append(data8)
+        crlh_data_list.append(data9)
+        crlh_data_list.append(data10)
+        crlh_data_list.append(data11)
+        crlh_data_list.append(data12)
+        crlh_data_list.append(data13)
+        crlh_data_list.append(data14)
+        pyautogui.press('tab', interval=1)
+        time.sleep(1)
+        pyautogui.press('tab', interval=1)
+        time.sleep(1)
+        for i in crlh_data_list:
+            pyautogui.press('tab', interval=2)
+            time.sleep(2)
+            pyautogui.typewrite(str(i),interval=2)
+            time.sleep(1)
+
+
+        # pyautogui.press('tab', interval=1)
+        #
+        # pyautogui.press('tab', interval=1)
+
+
+
+        # for i in range(11):
+        #     desk_control_x, desk_control_y = pyautogui.locateCenterOnScreen(self.tianbao_crlh, confidence=0.8)
+        #
+        #     desk_control_x, desk_control_y = desk_control_x + 100, desk_control_y + 20
+        #     pyautogui.moveTo(desk_control_x, desk_control_y)
+        #     print(desk_control_x, desk_control_y, 10000, self.tianbao_crlh)
+        #     pyautogui.click()
+        #     WinGenericClass().choose_all()
+        #
+        #     pyautogui.typewrite(F"1", interval=1)  # 日发电量
+        #     pyautogui.press('tab', interval=1)
+        #     kygl = float(crlh_data[14]) + float(crlh_data[12]) + float(crlh_data[12])
+        #     pyautogui.typewrite(F"{2}", interval=1)  # 可用发电量
+        #     pyautogui.press('tab', interval=1)
+        #     llfdl = float(crlh_data[14]) + float(crlh_data[12])
+        #     pyautogui.typewrite(F"{3}", interval=1)  # 理论发电量
+        #     pyautogui.press('tab', interval=1)  # 日站外受阻电量
+        #     pyautogui.typewrite(F"{4}", interval=1)
+        #     pyautogui.press('tab', interval=1)  # 日站内受阻电量
+        #     pyautogui.typewrite(F"{5}", interval=1)
+        #     pyautogui.press('tab', interval=1)  # 样板机日发电量
+        #     pyautogui.typewrite(F"{6}", interval=1)
+        #     pyautogui.press('tab', interval=1)  # 日最大电量
+        #     pyautogui.typewrite(F"{7}", interval=1)
+        #     pyautogui.press('tab', interval=1)  # 日最大受阻电量
+        #     pyautogui.typewrite(F"{8}", interval=1)
+        #     pyautogui.press('tab', interval=1)  # 平均风速
+        #     pyautogui.typewrite(F"{9}", interval=1)
+        #     pyautogui.press('tab', interval=1)  # 最大风速
+        #     pyautogui.typewrite(F"{10}", interval=1)
+        #
+        #     pyautogui.press('tab', interval=1)  # 最大风速
+        #     pyautogui.typewrite(F"{11}", interval=1)
+        #
+        #     pyautogui.press('tab', interval=1)  # 最高气温
+        #     pyautogui.typewrite(F"{12}", interval=1)
+        #     pyautogui.press('tab', interval=1)  # 平均气温8
+        #     pyautogui.typewrite(F"{13}", interval=1)
+        #     pyautogui.press('tab', interval=1)  # 平均气温
+        #     pyautogui.typewrite(F"{14}", interval=1)
+        #
+        #     time.sleep(2)
+    def choose_fill1_crlh(self):
+        time.sleep(3)
+        crlh_data = WinGenericClass().select_crlh()
+
+        desk_control_x, desk_control_y = pyautogui.locateCenterOnScreen(self.tianbao_kuang_crlh, confidence=0.8)
+        pyautogui.moveTo(desk_control_x, desk_control_y)
+        pyautogui.doubleClick(desk_control_x,desk_control_y)
+        print(desk_control_x, desk_control_y, 10000, self.tianbao_crlh)
+        wf_name = crlh_data[0]
+        now_day=  crlh_data[1]
+        swdl =    float(crlh_data[2])
+        data1 =  swdl
+        zwxdl = float(crlh_data[12])
+        data2 = swdl+ zwxdl
+        znssdl = crlh_data[4]
+        data3 = swdl+ zwxdl+znssdl
+        data4 = zwxdl
+        data5 = znssdl
+        data6 = crlh_data[5]
+        data7 = crlh_data[3]
+        data8 = crlh_data[13]
+        data9 = crlh_data[6]
+        data10 = crlh_data[7]
+        data11 = crlh_data[8]
+        data12 = crlh_data[10]
+        data13 = crlh_data[9]
+        data14 = crlh_data[11]
+        crlh_data_list = []
+        crlh_data_list.append(data1)
+        crlh_data_list.append(data2)
+        crlh_data_list.append(data3)
+        crlh_data_list.append(data4)
+        crlh_data_list.append(data5)
+        crlh_data_list.append(data6)
+        crlh_data_list.append(data7)
+        crlh_data_list.append(data8)
+        crlh_data_list.append(data9)
+        crlh_data_list.append(data10)
+        crlh_data_list.append(data11)
+        crlh_data_list.append(data12)
+        crlh_data_list.append(data13)
+        crlh_data_list.append(data14)
+        # pyautogui.press('tab', interval=1)
+        # time.sleep(1)
+        # pyautogui.press('tab', interval=1)
+        # time.sleep(1)
+        for i in crlh_data_list:
+            pyautogui.press('tab', interval=1)
+            time.sleep(2)
+            pyautogui.typewrite(str(i),interval=1)
+            time.sleep(1)
+
+
+        # pyautogui.press('tab', interval=1)
+        #
+        # pyautogui.press('tab', interval=1)
+
+
+
+        # for i in range(11):
+        #     desk_control_x, desk_control_y = pyautogui.locateCenterOnScreen(self.tianbao_crlh, confidence=0.8)
+        #
+        #     desk_control_x, desk_control_y = desk_control_x + 100, desk_control_y + 20
+        #     pyautogui.moveTo(desk_control_x, desk_control_y)
+        #     print(desk_control_x, desk_control_y, 10000, self.tianbao_crlh)
+        #     pyautogui.click()
+        #     WinGenericClass().choose_all()
+        #
+        #     pyautogui.typewrite(F"1", interval=1)  # 日发电量
+        #     pyautogui.press('tab', interval=1)
+        #     kygl = float(crlh_data[14]) + float(crlh_data[12]) + float(crlh_data[12])
+        #     pyautogui.typewrite(F"{2}", interval=1)  # 可用发电量
+        #     pyautogui.press('tab', interval=1)
+        #     llfdl = float(crlh_data[14]) + float(crlh_data[12])
+        #     pyautogui.typewrite(F"{3}", interval=1)  # 理论发电量
+        #     pyautogui.press('tab', interval=1)  # 日站外受阻电量
+        #     pyautogui.typewrite(F"{4}", interval=1)
+        #     pyautogui.press('tab', interval=1)  # 日站内受阻电量
+        #     pyautogui.typewrite(F"{5}", interval=1)
+        #     pyautogui.press('tab', interval=1)  # 样板机日发电量
+        #     pyautogui.typewrite(F"{6}", interval=1)
+        #     pyautogui.press('tab', interval=1)  # 日最大电量
+        #     pyautogui.typewrite(F"{7}", interval=1)
+        #     pyautogui.press('tab', interval=1)  # 日最大受阻电量
+        #     pyautogui.typewrite(F"{8}", interval=1)
+        #     pyautogui.press('tab', interval=1)  # 平均风速
+        #     pyautogui.typewrite(F"{9}", interval=1)
+        #     pyautogui.press('tab', interval=1)  # 最大风速
+        #     pyautogui.typewrite(F"{10}", interval=1)
+        #
+        #     pyautogui.press('tab', interval=1)  # 最大风速
+        #     pyautogui.typewrite(F"{11}", interval=1)
+        #
+        #     pyautogui.press('tab', interval=1)  # 最高气温
+        #     pyautogui.typewrite(F"{12}", interval=1)
+        #     pyautogui.press('tab', interval=1)  # 平均气温8
+        #     pyautogui.typewrite(F"{13}", interval=1)
+        #     pyautogui.press('tab', interval=1)  # 平均气温
+        #     pyautogui.typewrite(F"{14}", interval=1)
+        #
+        #     time.sleep(2)
 
     def choose_fill_llfdl(self):
         crlh_data = WinGenericClass().select_crlh()
@@ -689,25 +897,53 @@ class WebpageDataReport(object):
         FIC = FindImageCoordinates()
         print(999999999)
         time.sleep(3)
-        desk_control_x, desk_control_y = FIC.find_icon_coordinates(self.save_data)
+        desk_control_x, desk_control_y = FIC.find_icon_coordinates(self.save_data_crlh)
+        pyautogui.moveTo(desk_control_x, desk_control_y)
+        pyautogui.doubleClick()
+        time.sleep(2)
+    def choose_save_data_ahqs(self):
+        FIC = FindImageCoordinates()
+        print(999999999)
+        time.sleep(3)
+        desk_control_x, desk_control_y = FIC.find_icon_coordinates(self.save_data_ahqs)
         pyautogui.moveTo(desk_control_x, desk_control_y)
         pyautogui.doubleClick()
         time.sleep(2)
 
-    def choose_confirm_save(self):
+    def choose_confirm_save_crlh(self):
         FIC = FindImageCoordinates()
-        print("choose_confirm_save")
+        print("开始点击安华强上报@")
         time.sleep(3)
         desk_control_x, desk_control_y = FIC.find_icon_coordinates(self.confirm_save)
         pyautogui.moveTo(desk_control_x, desk_control_y)
         pyautogui.doubleClick()
         time.sleep(2)
+        print("已经点击安华强")
 
-    def choose_confirm_report(self):
+    def choose_confirm_save_ahqs(self):
+        FIC = FindImageCoordinates()
+        print("开始点击安华强上报@")
+        time.sleep(3)
+        desk_control_x, desk_control_y = FIC.find_icon_coordinates(self.confirm_save_ahqs)
+        pyautogui.moveTo(desk_control_x, desk_control_y)
+        pyautogui.doubleClick()
+        time.sleep(2)
+        print("已经点击安华强")
+
+
+    def choose_confirm_report_ahqs(self):
         FIC = FindImageCoordinates()
         print("choose_confirm_report")
         time.sleep(3)
-        desk_control_x, desk_control_y = FIC.find_icon_coordinates(self.confirm_report)
+        desk_control_x, desk_control_y = FIC.find_icon_coordinates(self.confirm_report_ahqs)
+        pyautogui.moveTo(desk_control_x, desk_control_y)
+        pyautogui.doubleClick()
+        time.sleep(2)
+    def choose_confirm_report_crlh(self):
+        FIC = FindImageCoordinates()
+        print("choose_confirm_report")
+        time.sleep(3)
+        desk_control_x, desk_control_y = FIC.find_icon_coordinates(self.confirm_report_crlh)
         pyautogui.moveTo(desk_control_x, desk_control_y)
         pyautogui.doubleClick()
         time.sleep(2)
@@ -760,6 +996,20 @@ class WinGenericClass(object):
         res = MC.query_sql(query_sql)
         return res[0]
 
+    def select_ahqs(self):
+        from DataBaseInfo.MysqlInfo.MysqlTools import MysqlCurd
+
+        new_nanfang = R'DataBaseInfo/MysqlInfo/new_nanfang.yml'
+        MC = MysqlCurd(new_nanfang)
+        from datetime import date, timedelta
+        today = date.today()
+        yesterday = today - timedelta(days=1)
+        formatted_yesterday = yesterday.strftime('%Y-%m-%d')
+
+        query_sql = F"SELECT * FROM `data_oms数据源_吉林` WHERE 风电场='安华强胜' and 日期='{formatted_yesterday}'"
+        res = MC.query_sql(query_sql)
+        return res[0]
+
 
 class SavePushDing():
     def __init__(self):
@@ -783,6 +1033,14 @@ class SavePushDing():
                     F'长润龙湖数据推送'
             }
         }
+        self.message_ahqs = {
+            "msgtype": "markdown",
+            "markdown": {
+                "title": "安华强胜数据推送",
+                "text":
+                    F'安华强胜数据推送'
+            }
+        }
 
     def pic_save_crlh(self):
         from PIL import ImageGrab
@@ -801,6 +1059,23 @@ class SavePushDing():
                               chatid_value=self.nls_chatid)
         DATNLS.push_message(self.nls_token, self.message_crlh)
         DATNLS.send_file("crlh.png", 0)
+    def pic_save_ahqs(self):
+        from PIL import ImageGrab
+
+        # 截取整个屏幕并保存为图片文件
+        screen = ImageGrab.grab()
+        screen.save("ahqs.png")
+        from DingInfo.DingBotMix import DingApiTools
+        # 天润
+        DAT = DingApiTools(appkey_value=self.appkey, appsecret_value=self.appsecret, chatid_value=self.chatid)
+        DAT.push_message(self.jf_token, self.message_ahqs)
+        DAT.send_file("ahqs.png", 0)
+
+        # 奈卢斯
+        DATNLS = DingApiTools(appkey_value=self.nls_appkey, appsecret_value=self.nls_appsecret,
+                              chatid_value=self.nls_chatid)
+        DATNLS.push_message(self.nls_token, self.message_ahqs)
+        DATNLS.send_file("ahqs.png", 0)
 
 
 def run_crlh():
@@ -810,97 +1085,110 @@ def run_crlh():
     RSL = RunSunLogin()
     # #
     #
-    WGC.return_desk()
-    FT = FindExeTools()
-    soft_name = F'SunloginRemote.exe'
-    FT.find_soft_kill(soft_name)
-    RSL.sun_login()
-    RCS.max_screen()
     # WGC.return_desk()
-    for _ in range(5):
-        time.sleep(0.1)
-
-        # 模拟按下Ctrl键
-        pyautogui.keyDown('win')
-        # 模拟按下D键
-        pyautogui.press('d')
-        pyautogui.keyUp('win')
-        time.sleep(0.1)
-        pyautogui.keyDown('alt')
-        pyautogui.press('f4')
-        pyautogui.keyUp('alt')
-        # 添加一个小延迟以确保每次按键操作都能被系统识别
-        time.sleep(0.1)
-    time.sleep(2)
-    for _ in range(2):
-        RCS.open_browser()
-
-    time.sleep(2)
-    pyautogui.press('f11')
-    time.sleep(1)
-    pyautogui.press('f11')
-    time.sleep(1)
-
-    pyautogui.press('f11')
-    time.sleep(1)
-    try:
-        RCS.open_dispatch()
-    except Exception as e:
-        print(1, e)
-    # pyautogui.press('tab')
-    # time.sleep(2)
-    # for _ in range(3):
-    #     pyautogui.press('right')
-    #     time.sleep(2)
-    # pyautogui.press('tab')
-    # time.sleep(2)
-    # pyautogui.press('enter')
-    # time.sleep(2)
+    # FT = FindExeTools()
+    # soft_name = F'SunloginRemote.exe'
+    # FT.find_soft_kill(soft_name)
+    # RSL.sun_login()
+    # RCS.max_screen()
+    # # WGC.return_desk()
+    # for _ in range(5):
+    #     time.sleep(0.1)
     #
-    # # for _ in range(66):
-    # for _ in range(65):
-    #     pyautogui.press('down', interval=0.5)
+    #     # 模拟按下Ctrl键
+    #     pyautogui.keyDown('win')
+    #     # 模拟按下D键
+    #     pyautogui.press('d')
+    #     pyautogui.keyUp('win')
+    #     time.sleep(0.1)
+    #     pyautogui.keyDown('alt')
+    #     pyautogui.press('f4')
+    #     pyautogui.keyUp('alt')
+    #     # 添加一个小延迟以确保每次按键操作都能被系统识别
+    #     time.sleep(0.1)
+    # time.sleep(2)
+    # for _ in range(2):
+    #     RCS.open_browser()
     #
-    # pyautogui.press('enter')
+    # time.sleep(2)
+    # pyautogui.press('f11')
     # time.sleep(1)
-    # pyautogui.press('tab')
-    # time.sleep(2)
-    # pyautogui.typewrite('crlhfdc', interval=2)
-    # # pyautogui.typewrite('ahqsfdc', interval=2)
-    # time.sleep(2)
-    # pyautogui.press('tab')
-    # time.sleep(2)
-    # pyautogui.typewrite('crlhfdc283', interval=2)
-    # # pyautogui.typewrite('ahqsfdc298', interval=2)
-    # pyautogui.press('tab')
-    # time.sleep(2)
-    # pyautogui.press('enter')  # 登录
-    # time.sleep(2)
-    RCS.choose_wind_farm()
-    RCS.choose_drop_list()
-    RCS.choose_login_name()
-    RCS.choose_login_password()
-    RCS.choose_login_button()
+    # pyautogui.press('f11')
+    # time.sleep(1)
+    #
+    # pyautogui.press('f11')
+    # time.sleep(1)
+    # try:
+    #     RCS.open_dispatch()
+    # except Exception as e:
+    #     print(1, e)
+    # # pyautogui.press('tab')
+    # # time.sleep(2)
+    # # for _ in range(3):
+    # #     pyautogui.press('right')
+    # #     time.sleep(2)
+    # # pyautogui.press('tab')
+    # # time.sleep(2)
+    # # pyautogui.press('enter')
+    # # time.sleep(2)
     # #
+    # # # for _ in range(66):
+    # # for _ in range(65):
+    # #     pyautogui.press('down', interval=0.5)
+    # #
+    # # pyautogui.press('enter')
+    # # time.sleep(1)
+    # # pyautogui.press('tab')
+    # # time.sleep(2)
+    # # pyautogui.typewrite('crlhfdc', interval=2)
+    # # # pyautogui.typewrite('ahqsfdc', interval=2)
+    # # time.sleep(2)
+    # # pyautogui.press('tab')
+    # # time.sleep(2)
+    # # pyautogui.typewrite('crlhfdc283', interval=2)
+    # # # pyautogui.typewrite('ahqsfdc298', interval=2)
+    # # pyautogui.press('tab')
+    # # time.sleep(2)
+    # # pyautogui.press('enter')  # 登录
+    # # time.sleep(2)
+    # RCS.choose_wind_farm()
+    # RCS.choose_drop_list()
+    # RCS.choose_login_name()
+    # RCS.choose_login_password()
+    # RCS.choose_login_button()
+    # # #
 
-    try:
-        WDR.choose_fdycgl()
-    except Exception as e:
-        print("choose_fdycgl", e)
-        WDR.choose_fdycgl()
-    WDR.choose_fdyryxxx()
-    WDR.choose_fill_llfdl()
-    WDR.choose_fill1()
+    # try:
+    #     WDR.choose_fdycgl()
+    # except Exception as e:
+    #     print("choose_fdycgl", e)
+    #     WDR.choose_fdycgl()
+    # WDR.choose_fdyryxxx()
+    # WDR.choose_fill_llfdl()
+    # WDR.choose_fill1()
+    # WDR.choose_fill1_crlh()
     try:
         WDR.choose_save_data()
     except Exception as e:
         WDR.choose_save_data()
 
-    WDR.choose_confirm_save()
     try:
-        WDR.choose_confirm_save()
+        WDR.choose_confirm_save_crlh()
     except Exception as e:
-        WDR.choose_confirm_save()
+        WDR.choose_confirm_save_crlh()
+    try:
+        WDR.choose_confirm_save_crlh()
+    except Exception as e:
+        WDR.choose_confirm_save_crlh()
+
+    try:
+        WDR.choose_confirm_report_crlh()
+    except Exception as e:
+        WDR.choose_confirm_report_crlh()
+    try:
+        WDR.choose_confirm_save_crlh()
+    except Exception as e:
+        WDR.choose_confirm_save_crlh()
 
     SPD = SavePushDing()
     SPD.pic_save_crlh()
@@ -912,52 +1200,52 @@ def run_ahqs():
     RSL = RunSunLogin()
     # #
     #
-    WGC.return_desk()
-    FT = FindExeTools()
-    soft_name = F'SunloginRemote.exe'
-    FT.find_soft_kill(soft_name)
-    RSL.sun_login_ahqs()
-    RCS.max_screen_ahqs()
-    WGC.return_desk()
-    for _ in range(5):
-        time.sleep(0.1)
-
-        # 模拟按下Ctrl键
-        pyautogui.keyDown('win')
-        # 模拟按下D键
-        pyautogui.press('d')
-        pyautogui.keyUp('win')
-        time.sleep(0.1)
-        pyautogui.keyDown('alt')
-        pyautogui.press('f4')
-        pyautogui.keyUp('alt')
-        # 添加一个小延迟以确保每次按键操作都能被系统识别
-        time.sleep(0.1)
-        RCS.open_browser_ahqs()
-    pyautogui.press('f11')
-    time.sleep(1)
-    pyautogui.press('f11')
-    time.sleep(1)
-
-    pyautogui.press('f11')
-    time.sleep(4)
-    print("界面最大话")
-    # try:
-    #     RCS.open_dispatch()
-    # except Exception as e:
-    #     print(871, e)
-    time.sleep(3)
-    pyautogui.press('tab', interval=0.1)
-    time.sleep(2)
-    for _ in range(4):
-        pyautogui.press('right')
-        time.sleep(2)
-    pyautogui.press('tab')
-    print("选择")
-
-    time.sleep(2)
-    pyautogui.press('enter')
-    time.sleep(2)
+    # WGC.return_desk()
+    # FT = FindExeTools()
+    # soft_name = F'SunloginRemote.exe'
+    # FT.find_soft_kill(soft_name)
+    # RSL.sun_login_ahqs()
+    # RCS.max_screen_ahqs()
+    # WGC.return_desk()
+    # for _ in range(5):
+    #     time.sleep(0.1)
+    #
+    #     # 模拟按下Ctrl键
+    #     pyautogui.keyDown('win')
+    #     # 模拟按下D键
+    #     pyautogui.press('d')
+    #     pyautogui.keyUp('win')
+    #     time.sleep(0.1)
+    #     pyautogui.keyDown('alt')
+    #     pyautogui.press('f4')
+    #     pyautogui.keyUp('alt')
+    #     # 添加一个小延迟以确保每次按键操作都能被系统识别
+    #     time.sleep(0.1)
+    #     RCS.open_browser_ahqs()
+    # pyautogui.press('f11')
+    # time.sleep(1)
+    # pyautogui.press('f11')
+    # time.sleep(1)
+    #
+    # pyautogui.press('f11')
+    # time.sleep(4)
+    # print("界面最大话")
+    # # try:
+    # #     RCS.open_dispatch()
+    # # except Exception as e:
+    # #     print(871, e)
+    # time.sleep(3)
+    # pyautogui.press('tab', interval=0.1)
+    # time.sleep(2)
+    # for _ in range(4):
+    #     pyautogui.press('right')
+    #     time.sleep(2)
+    # pyautogui.press('tab')
+    # print("选择")
+    #
+    # time.sleep(2)
+    # pyautogui.press('enter')
+    # time.sleep(2)
 
     # for _ in range(66):
     # for _ in range(75):
@@ -1008,22 +1296,30 @@ def run_ahqs():
     #     WDR.choose_fdycgl()
     # # WDR.choose_fdyryxxx()
     # WDR.choose_fill_llfdl()
-    WDR.choose_fill1()
+    WDR.choose_fill1_ahqs()
     try:
-        WDR.choose_save_data()
+        WDR.choose_save_data_ahqs()
     except Exception as e:
-        WDR.choose_save_data()
+        WDR.choose_save_data_ahqs()
 
-    WDR.choose_confirm_save()
     try:
-        WDR.choose_confirm_save()
+        WDR.choose_confirm_save_ahqs()
     except Exception as e:
-        WDR.choose_confirm_save()
+        WDR.choose_confirm_save_ahqs()
+    try:
+        WDR.choose_confirm_save_ahqs()
+    except Exception as e:
+        WDR.choose_confirm_save_ahqs()
 
+
+    try:
+        WDR.choose_confirm_report_ahqs()
+    except Exception as e:
+        WDR.choose_confirm_report_ahqs()
     SPD = SavePushDing()
-    SPD.pic_save_crlh()
+    SPD.pic_save_ahqs()
 
 if __name__ == '__main__':
     run_crlh()
     # run_ahqs()
-
+5.4
