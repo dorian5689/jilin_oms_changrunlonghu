@@ -517,7 +517,10 @@ class WebpageDataReport(object):
         for i in crlh_data_list:
             pyautogui.press('tab', interval=2)
             time.sleep(2)
-            pyautogui.typewrite(str(i),interval=2)
+            for k  in str(i):
+                pyautogui.press(f'{k}', interval=2)
+
+            # pyautogui.typewrite(str(i),interval=2)
             time.sleep(1)
 
 
@@ -618,7 +621,10 @@ class WebpageDataReport(object):
         for i in crlh_data_list:
             pyautogui.press('tab', interval=2)
             time.sleep(2)
-            pyautogui.typewrite(str(i),interval=2)
+            # pyautogui.typewrite(str(i),interval=2)
+            for k  in str(i):
+                pyautogui.press(f'{k}', interval=2)
+
             time.sleep(1)
 
 
@@ -717,9 +723,9 @@ class WebpageDataReport(object):
         # pyautogui.press('tab', interval=1)
         # time.sleep(1)
         for i in crlh_data_list:
-            pyautogui.press('tab', interval=1)
+            pyautogui.press('tab', interval=2)
             time.sleep(2)
-            pyautogui.typewrite(str(i),interval=1)
+            pyautogui.typewrite(str(i),interval=2)
             time.sleep(1)
 
 
@@ -1166,7 +1172,7 @@ def run_crlh():
     # WDR.choose_fdyryxxx()
     # WDR.choose_fill_llfdl()
     # WDR.choose_fill1()
-    # WDR.choose_fill1_crlh()
+    WDR.choose_fill1_crlh()
     try:
         WDR.choose_save_data()
     except Exception as e:
@@ -1320,6 +1326,6 @@ def run_ahqs():
     SPD.pic_save_ahqs()
 
 if __name__ == '__main__':
-    run_crlh()
-    # run_ahqs()
-5.4
+    # run_crlh()
+    run_ahqs()
+
