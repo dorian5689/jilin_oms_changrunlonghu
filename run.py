@@ -619,13 +619,15 @@ class WebpageDataReport(object):
         pyautogui.press('tab', interval=1)
         time.sleep(1)
         for i in crlh_data_list:
-            pyautogui.press('tab', interval=2)
             time.sleep(2)
-            # pyautogui.typewrite(str(i),interval=2)
+            pyautogui.press('tab', interval=3)
+            time.sleep(2)
+            # pyautogui.typewrite(str(i),interval=2)    00
             for k  in str(i):
-                pyautogui.press(f'{k}', interval=2)
-
-            time.sleep(1)
+                k = str(k)
+                print(628,k)
+                pyautogui.press(f'{k}', interval=3)
+                time.sleep(2)
 
 
         # pyautogui.press('tab', interval=1)
@@ -1168,7 +1170,7 @@ def run_crlh():
     #     WDR.choose_fdycgl()
     # except Exception as e:
     #     print("choose_fdycgl", e)
-    #     WDR.choose_fdycgl()
+    #     WDR.choose_fdycgl()8
     # WDR.choose_fdyryxxx()
     # WDR.choose_fill_llfdl()
     # WDR.choose_fill1()
@@ -1206,7 +1208,7 @@ def run_ahqs():
     RSL = RunSunLogin()
     # #
     #
-    # WGC.return_desk()
+    # WGC.return_desk().
     # FT = FindExeTools()
     # soft_name = F'SunloginRemote.exe'
     # FT.find_soft_kill(soft_name)
